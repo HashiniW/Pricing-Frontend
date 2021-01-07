@@ -77,7 +77,12 @@ const Pricing = () => {
   }
 
   //Get Prediction data for selected categories 
-  const predictPrice = () =>{
+  const predictPrice = (event) =>{
+    event.preventDefault();
+    
+    // Get form data from "event.target"
+    console.log(event.target);
+    
     //Map all selected categories and get prediction data for each
     selectedCentre.map((centre_name,i) =>{
       getPredictedPrice(date, centre_name, commodity_name).then(result =>{
@@ -91,7 +96,7 @@ const Pricing = () => {
     <div className="container" style={{paddingLeft: 40, paddingTop: 10, paddingRight: 0}}>
       <div className="container card">
         <div className="card-body" style={{padding: 40}}>
-        <form onSubmit={(e) => e.preventDefault() && false}>
+        <form onSubmit={(e) => predictPrice(e)}>
           <div class="form-row">
             <div class="col-md-8 mb-4">
               <label for="validationDefault01">Expected Date</label>
@@ -146,7 +151,7 @@ const Pricing = () => {
           </div>
           <div class="form-row" style={{marginTop: 30}}>
             <div>
-              <button className="btn btn-primary btn-block" onClick={predictPrice}>Get Price Prediction</button>
+              <button className="btn btn-primary btn-block">Get Price Prediction</button>
             </div>
           </div>
         </form>
@@ -154,12 +159,7 @@ const Pricing = () => {
       </div>
 
       <div className="card" style={{padding: 40}}>
-      <Bar
-        options={{
-          responsive: true
-        }}
-        data={chart}
-      />
+        <Bar options={{ responsive: true }} data={chart} />
       </div>
 
       <div className="card" style={{padding: 40}}>
