@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import ChartistGraph from 'react-chartist';
 import { getPredictedPrice } from '../config/api_calls'
-import {  } from "react-chartjs-2";
+import {Bar} from "react-chartjs-2";
 import Tomato from './tomato'
 
 const Pricing = () => {
@@ -86,6 +86,12 @@ const Pricing = () => {
     //Map all selected categories and get prediction data for each
     selectedCentre.map((centre_name,i) =>{
       getPredictedPrice(date, centre_name, commodity_name).then(result =>{
+
+        console.log(result);
+        console.log(date);
+        console.log(centre_name);
+        console.log(commodity_name);
+
         //Store data on prediction data array
         prediction[i] = result.predicted_retail_price
       })
@@ -102,7 +108,7 @@ const Pricing = () => {
               <label for="validationDefault01">Expected Date</label>
               <input type="date" class="form-control" id="validationDefault01" placeholder="Date" 
               onChange={(e) => {setDate(e.target.value)}} 
-              min='2018-01-01' max='2018-03-31'
+              min='2015-01-01' max='2015-03-31'
               required/>
             </div>
             <div class="col-md-4 mb-4">
@@ -119,9 +125,9 @@ const Pricing = () => {
                   setNameForCentre1(e)
                   }}>
                   <option defaultValue>Select Centre - 01</option>
-                  <option value={1}>Mumbai</option>
-                  <option value={2}>Kolkata</option>
-                  <option value={3}>Delhi</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
                 </select>
               </div>
               <div class="col-md-3 mb-3">
@@ -131,9 +137,9 @@ const Pricing = () => {
                   setNameForCentre2(e)
                   }}>
                 <option defaultValue>Select Centre - 02</option>
-                  <option value={1}>Mumbai</option>
-                  <option value={2}>Kolkata</option>
-                  <option value={3}>Delhi</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
                 </select>
               </div>
               <div class="col-md-3 mb-3">
@@ -143,9 +149,9 @@ const Pricing = () => {
                   setNameForCentre3(e)
                   }}>
                 <option defaultValue>Select Centre - 03</option>
-                  <option value={1}>Mumbai</option>
-                  <option value={2}>Kolkata</option>
-                  <option value={3}>Delhi</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
                 </select>
               </div>
           </div>
