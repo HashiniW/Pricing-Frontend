@@ -76,27 +76,52 @@ const Pricing = () => {
     setCentre3Name(val.nativeEvent.target[index].text)
   }
 
-  //Get Prediction data for selected categories 
+  // Get Prediction data for selected categories 
   const predictPrice = (event) =>{
     event.preventDefault();
     
-    // Get form data from "event.target"
+  //   // Get form data from "event.target"
     console.log(event.target);
     
     //Map all selected categories and get prediction data for each
-    selectedCentre.map((centre_name,i) =>{
-      getPredictedPrice(date, centre_name, commodity_name).then(result =>{
+    selectedCentre.map(async (centre_name,i) =>{
+    //   getPredictedPrice(date, centre_name, commodity_name).then(result =>{
 
-        console.log(result);
-        console.log(date);
-        console.log(centre_name);
-        console.log(commodity_name);
+    //     console.log(result);
+    //     console.log(date);
+    //     console.log(centre_name);
+    //     console.log(commodity_name);
 
-        //Store data on prediction data array
-        prediction[i] = result.predicted_retail_price
-      })
-    })
+    //     //Store data on prediction data array
+    //     prediction[i] = result.predicted_retail_price
+    //   })
+    // })
+    // getPredictedPrice(date, centre_name, commodity_name)
+    const results = await getPredictedPrice(date, centre_name, commodity_name);
+    console.log('API Results::::', results);
+      prediction[i] = results.predicted_retail_price
+
+  })
   }
+
+  // const predictPrice = () =>{
+  //   //Map all selected categories and get prediction data for each
+  //   selectedCentre.map((centre_name,i) =>{
+  //     getPredictedPrice(date, centre_name, commodity_name).then(result =>{
+  //       console.log(result);
+  //               console.log(date);
+  //       console.log(centre_name);
+  //       console.log(commodity_name);
+
+
+  //       //Store data on prediction data array
+  //       prediction[i] = result.predicted_retail_price
+
+  //       console.log(prediction[i]);
+
+  //     })
+  //   })
+  // }
 
   return (
     <div className="container" style={{paddingLeft: 40, paddingTop: 10, paddingRight: 0}}>
@@ -163,6 +188,72 @@ const Pricing = () => {
         </form>
         </div>
       </div>
+
+      <div className="container card">
+        <div className="card-body" style={{padding: 40}}>
+      <form onSubmit={(e) => predictPrice(e)}>
+          <div class="form-row">
+            <div class="col-md-8 mb-4">
+              <label for="validationDefault01">Expected Date</label>
+              <input type="date" class="form-control" id="validationDefault01" placeholder="Date" 
+              onChange={(e) => {setDate(e.target.value)}} 
+              min='2015-01-01' max='2015-03-31'
+              required/>
+            </div>
+            <div class="col-md-4 mb-4">
+              <label for="validationDefault02">Vegetable</label>
+              <input type="text" class="form-control" id="validationDefault02" placeholder="Vegetable" 
+              onChange={(e) => {setVegetable(e.target.value)}} required/>
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault03">Centre - 01</label>
+                <select class="form-control form-control-lg" 
+                onChange={(e) => {
+                  setNameForCentre1(e)
+                  }}>
+                  <option defaultValue>Select Centre - 01</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault04">Centre - 02</label>
+                <select class="form-control form-control-lg"
+                onChange={(e) => {
+                  setNameForCentre2(e)
+                  }}>
+                <option defaultValue>Select Centre - 02</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault05">Centre - 03</label>
+                <select class="form-control form-control-lg"
+                onChange={(e) => {
+                  setNameForCentre3(e)
+                  }}>
+                <option defaultValue>Select Centre - 03</option>
+                  <option value={'Mumbai'}>Mumbai</option>
+                  <option value={'Kolkata'}>Kolkata</option>
+                  <option value={'Delhi'}>Delhi</option>
+                </select>
+              </div>
+          </div>
+          <div class="form-row" style={{marginTop: 30}}>
+            <div>
+              <button className="btn btn-primary btn-block">Get Price Prediction</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        </div>
+
+      
 
       <div className="card" style={{padding: 40}}>
         <Bar options={{ responsive: true }} data={chart} />

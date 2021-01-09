@@ -7,11 +7,8 @@ import { BASE_URL } from "./config";
       let price_prediction = await fetch(
         `${BASE_URL}/vegetable`,
         {
-          method: "GET",
-          headers: { 
-            'Accept': 'application/json',
-            "Content-Type": "application/json" 
-          },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             centre: centreName,
             date: pDate,
@@ -25,6 +22,336 @@ import { BASE_URL } from "./config";
       console.log(error);
     }
   };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Tomato_Delhi = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'DELHI',
+            date: '2015-03-31',
+            commodity: 'Tomato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Potato_Delhi = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'DELHI',
+            date: '2015-03-31',
+            commodity: 'Potato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Onion_Delhi = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'DELHI',
+            date: '2015-03-31',
+            commodity: 'Onion'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Cabbage_Delhi = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'DELHI',
+            date: '2015-03-31',
+            commodity: 'Cabbage'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+//Get Price Prediction data
+export const getTodayPredictedPrice_Brinjal_Delhi = async () => {
+  try {
+    let price_prediction = await fetch(
+      `${BASE_URL}/vegetable`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          centre: 'DELHI',
+          date: '2015-03-31',
+          commodity: 'Brinjal'
+        })
+      }
+    );
+    let result = await price_prediction.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Tomato_Mumbai = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'MUMBAI',
+            date: '2015-03-31',
+            commodity: 'Tomato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Potato_Mumbai = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'MUMBAI',
+            date: '2015-03-31',
+            commodity: 'Potato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Onion_Mumbai = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'MUMBAI',
+            date: '2015-03-31',
+            commodity: 'Onion'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Cabbage_Mumbai = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'MUMBAI',
+            date: '2015-03-31',
+            commodity: 'Cabbage'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+//Get Price Prediction data
+export const getTodayPredictedPrice_Brinjal_Mumbai = async () => {
+  try {
+    let price_prediction = await fetch(
+      `${BASE_URL}/vegetable`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          centre: 'MUMBAI',
+          date: '2015-03-31',
+          commodity: 'Brinjal'
+        })
+      }
+    );
+    let result = await price_prediction.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Tomato_Kolkata = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'KOLKATA',
+            date: '2015-03-31',
+            commodity: 'Tomato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Potato_Kolkata = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'KOLKATA',
+            date: '2015-03-31',
+            commodity: 'Potato'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Onion_Kolkata = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'KOLKATA',
+            date: '2015-03-31',
+            commodity: 'Onion'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Get Price Prediction data
+  export const getTodayPredictedPrice_Cabbage_Kolkata = async () => {
+    try {
+      let price_prediction = await fetch(
+        `${BASE_URL}/vegetable`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            centre: 'KOLKATA',
+            date: '2015-03-31',
+            commodity: 'Cabbage'
+          })
+        }
+      );
+      let result = await price_prediction.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+//Get Price Prediction data
+export const getTodayPredictedPrice_Brinjal_Kolkata = async () => {
+  try {
+    let price_prediction = await fetch(
+      `${BASE_URL}/vegetable`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          centre: 'KOLKATA',
+          date: '2015-03-31',
+          commodity: 'Brinjal'
+        })
+      }
+    );
+    let result = await price_prediction.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   export const tomato = async () => {
     try {
